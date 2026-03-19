@@ -1,58 +1,107 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Calculator</title>
+    <title>Calculator Pro</title>
     <style>
         body {
-            font-family: Arial;
-            background: #f2f2f2;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #667eea, #764ba2);
             text-align: center;
-            margin-top: 50px;
+            margin: 0;
+            padding: 0;
         }
+
+        .container {
+            margin-top: 80px;
+        }
+
         .box {
             background: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 300px;
+            padding: 30px;
+            border-radius: 15px;
+            width: 350px;
             margin: auto;
-            box-shadow: 0 0 10px gray;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: fadeIn 1s ease-in-out;
         }
-        input, select, button {
+
+        h1 {
+            color: #333;
+        }
+
+        input, select {
             margin: 10px;
-            padding: 10px;
-            width: 80%;
+            padding: 12px;
+            width: 85%;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font-size: 14px;
         }
+
         button {
-            background: #007BFF;
-            color: white;
+            margin-top: 15px;
+            padding: 12px;
+            width: 90%;
+            border-radius: 8px;
             border: none;
+            font-size: 16px;
+            color: white;
+            background: linear-gradient(45deg, #ff7e5f, #feb47b);
+            cursor: pointer;
+            transition: 0.3s;
         }
+
+        button:hover {
+            transform: scale(1.05);
+            background: linear-gradient(45deg, #43cea2, #185a9d);
+        }
+
         h2 {
-            color: green;
+            margin-top: 20px;
+            color: #28a745;
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #aaa;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
+
 <body>
 
-<div class="box">
-    <h1>Calculator</h1>
-    <form method="post">
-        <input type="text" name="a" placeholder="Enter first number" required>
-        <input type="text" name="b" placeholder="Enter second number" required>
+<div class="container">
+    <div class="box">
+        <h1>🧮 Calculator Pro</h1>
 
-        <select name="operation">
-            <option value="add">Add</option>
-            <option value="sub">Subtract</option>
-            <option value="mul">Multiply</option>
-            <option value="div">Divide</option>
-        </select>
+        <form method="post">
+            <input type="text" name="a" placeholder="Enter first number" required>
+            <input type="text" name="b" placeholder="Enter second number" required>
 
-        <button type="submit">Calculate</button>
-    </form>
+            <select name="operation">
+                <option value="add">➕ Add</option>
+                <option value="sub">➖ Subtract</option>
+                <option value="mul">✖ Multiply</option>
+                <option value="div">➗ Divide</option>
+            </select>
 
-    {% if result is not none %}
-        <h2>Result: {{ result }}</h2>
-    {% endif %}
+            <button type="submit">Calculate 🚀</button>
+        </form>
+
+        {% if result is not none %}
+            <h2>Result: {{ result }}</h2>
+        {% endif %}
+
+        <div class="footer">
+            Built with ❤️ using Flask
+        </div>
+    </div>
 </div>
 
 </body>
